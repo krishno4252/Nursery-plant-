@@ -1,1 +1,64 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gold Calculator</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: goldenrod;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Gold Price Calculator</h2>
+
+    <input type="number" id="weight" placeholder="সোনার ওজন (গ্রাম)">
+    <br>
+    <input type="number" id="price" placeholder="প্রতি গ্রাম দাম (২৪ ক্যারেট)">
+    <br>
+    <button onclick="calculate()">Calculate</button>
+
+    <div id="result"></div>
+
+    <script>
+        function calculate() {
+            let weight = parseFloat(document.getElementById("weight").value);
+            let price = parseFloat(document.getElementById("price").value);
+
+            if(isNaN(weight) || isNaN(price)) {
+                document.getElementById("result").innerHTML = "দয়া করে সঠিক তথ্য দিন";
+                return;
+            }
+
+            let gold24 = weight * price;
+            let gold22 = weight * price * (22/24);
+            let gold18 = weight * price * (18/24);
+
+            document.getElementById("result").innerHTML =
+                "২৪ ক্যারেট সোনা: ₹" + gold24.toFixed(2) + "<br>" +
+                "২২ ক্যারেট সোনা: ₹" + gold22.toFixed(2) + "<br>" +
+                "১৮ ক্যারেট সোনা: ₹" + gold18.toFixed(2);
+        }
+    </script>
+
+</body>
+</html>
