@@ -1,64 +1,45 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Gold Calculator</title>
-    <style>
-        body {
-            font-family: Arial;
-            text-align: center;
-            margin-top: 50px;
-        }
-        input {
-            padding: 10px;
-            margin: 10px;
-            width: 200px;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: goldenrod;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-        #result {
-            margin-top: 20px;
-            font-size: 18px;
-        }
-    </style>
-</head>
-<body>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Store</title>
 
-    <h2>Gold Price Calculator</h2>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <input type="number" id="weight" placeholder="সোনার ওজন (গ্রাম)">
-    <br>
-    <input type="number" id="price" placeholder="প্রতি গ্রাম দাম (২৪ ক্যারেট)">
-    <br>
-    <button onclick="calculate()">Calculate</button>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
-    <div id="result"></div>
+body{
+    background:#f5f7f6;
+}
 
-    <script>
-        function calculate() {
-            let weight = parseFloat(document.getElementById("weight").value);
-            let price = parseFloat(document.getElementById("price").value);
+/* HEADER */
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
 
-            if(isNaN(weight) || isNaN(price)) {
-                document.getElementById("result").innerHTML = "দয়া করে সঠিক তথ্য দিন";
-                return;
-            }
+.logo{
+    font-size:22px;
+    font-weight:600;
+    color:#2e7d32;
+}
 
-            let gold24 = weight * price;
-            let gold22 = weight * price * (22/24);
-            let gold18 = weight * price * (18/24);
+.cart{
+    background:#2e7d32;
+    color:white;
+    padding:8px 15px;
+    border-radius:20px;
+}
 
-            document.getElementById("result").innerHTML =
-                "২৪ ক্যারেট সোনা: ₹" + gold24.toFixed(2) + "<br>" +
-                "২২ ক্যারেট সোনা: ₹" + gold22.toFixed(2) + "<br>" +
-                "১৮ ক্যারেট সোনা: ₹" + gold18.toFixed(2);
-        }
-    </script>
-
-</body>
-</html>
+/
